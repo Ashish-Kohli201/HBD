@@ -376,7 +376,7 @@
         <div class="relative w-full h-[45%] wood-texture z-10 flex justify-center items-end pb-16 shadow-[0_-20px_60px_rgba(0,0,0,0.3)]">
 
             <!-- PROP: CALENDAR (Animated) -->
-            <div id="prop-calendar" class="draggable-prop desk-prop absolute left-[12%] bottom-[40%] w-36 h-44 group z-20">
+            <div id="prop-calendar" class="draggable-prop desk-prop absolute left-[8%] bottom-[40%] w-36 h-44 group z-20">
                 <div class="w-full h-full relative transform -rotate-3 transition-transform hover:-translate-y-2">
                     <div class="absolute -top-4 left-6 w-3 h-8 bg-gray-400 rounded-full z-10 shadow-sm border border-gray-500"></div>
                     <div class="absolute -top-4 right-6 w-3 h-8 bg-gray-400 rounded-full z-10 shadow-sm border border-gray-500"></div>
@@ -402,7 +402,7 @@
             </div>
 
             <!-- PROP: LAMP -->
-            <div id="prop-lamp" class="draggable-prop desk-prop absolute left-[0%] bottom-[5%] z-30 w-32 h-64">
+            <div id="prop-lamp" class="draggable-prop desk-prop absolute left-[0%] bottom-[5%] z-30 w-26 h-56">
                 <div class="absolute bottom-0 left-10 w-24 h-4 bg-gray-700 rounded-full shadow-lg"></div>
                 <div class="absolute bottom-4 left-20 w-4 h-32 bg-gray-600 -mb-4 origin-bottom transform -rotate-12"></div>
                 <div class="absolute top-10 left-8 w-32 h-20 bg-yellow-100 opacity-90 rounded-t-full rounded-b-lg border-4 border-yellow-200 shadow-[0_0_40px_rgba(253,224,71,0.6)]"></div>
@@ -497,7 +497,7 @@
                             </div>
 
                             <!-- WINDOW: Daily Challenge -->
-                            <div id="win-game" class="window w-[500px] h-[450px] top-6 left-[120px] hidden shadow-2xl z-20" onmousedown="bringToFront('win-game')">
+                            <div id="win-game" class="window w-[400px] h-[350px] top-6 left-[120px] hidden shadow-2xl z-20" onmousedown="bringToFront('win-game')">
                                 <div class="window-header">
                                     <div class="flex gap-1.5 mr-4">
                                         <div onclick="closeApp('game')" class="w-3 h-3 rounded-full bg-red-500 cursor-pointer hover:bg-red-600"></div>
@@ -540,7 +540,7 @@
                                                 <div class="text-sm font-bold text-gray-200">White Mustang</div>
                                                 <div class="text-xs text-gray-500">Lana Del Ray</div>
                                             </div>
-                                            <i onclick="playSong('https://rr3---sn-4g5ednrl.googlevideo.com/videoplayback?expire=1766186636&ei=LIpFaYzAGZ_ehcIP98GEmA0&ip=64.137.94.229&id=o-AFVDQBvW8qyoHaSS-_YFV8cr3d4JhS234C7ugjCXszNE&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=26&met=1766165036%2C&mh=4_&mm=31%2C29&mn=sn-4g5ednrl%2Csn-4g5lzne6&ms=au%2Crdu&mv=u&mvi=3&pl=24&rms=au%2Cau&bui=AYUSA3AUlsGmkSNxDGR-cTUaUfGi5W_l1gkas38gHG4pk19r8ex3_uc1C4s19qIg9XWijapztAX3iZdi&spc=wH4Qq1B7ZP2m&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=2668538&dur=164.838&lmt=1751770431506269&mt=1766164070&fvip=4&keepalive=yes&fexp=51552689%2C51565116%2C51565682%2C51580968&c=ANDROID&txp=5532534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgEpEh9ItvFCnDRgIVWMAcrSink2F_jtdqYnmALARAlJACIQD6jEqf5YcfsNMIhwqIb6l8aLQF9KTSeWQTXeRNa9zQcA%3D%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms&lsig=APaTxxMwRQIgd6K0PX8eyxEIvsQEW3mmn-ehq9u2EqD4yQ6qcNoYlV8CIQDPUukvRf5tiumBQFELy83rNDX-5S8WeQlvpWcQzgRpuQ%3D%3D')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
+                                            <i onclick="playSong('1.mp3')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                             <i onclick="currentAudio.pause()" data-lucide="pause" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                         </div>
                                         <div class="music-row flex items-center gap-3 p-2 rounded hover:bg-gray-800 cursor-pointer group">
@@ -549,7 +549,7 @@
                                                 <div class="text-sm font-bold text-gray-200">Be My Baby</div>
                                                 <div class="text-xs text-gray-500">The Ronettes</div>
                                             </div>
-                                            <i onclick="playSong('https://rr6---sn-ci5gup-qxaes.googlevideo.com/videoplayback?expire=1766187533&ei=rY1Faf-vB_a-mLAP6JXr6QM&ip=31.59.20.205&id=o-AFcNHyq0M0KZ_yxidx1fj_K-NYy79w0l0JcK4bA2SbUJ&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AYUSA3BaF7WgAgHS_nCiwZoRIDKzentDCOXZsZiTycY30WimATbLPiWp4sQZWM2suC57yZZaKRyQ07uE&spc=wH4Qq1na_sZe&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=2674922&dur=165.233&lmt=1738663536494785&keepalive=yes&fexp=51552689,51565115,51565681,51580968&c=ANDROID&txp=5532534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRgIhAMf-3TGxZ3YJCbcBcwIe87IaY5W4A2fubnPX0p9n_O0XAiEAi4uPHbydR1kor71caYtFhJYcXrLIseKNK5Tqbs61sRA%3D&redirect_counter=1&rm=sn-aige6r7s&rrc=104&req_id=9980db398968a3ee&cms_redirect=yes&cmsv=e&cps=0&ipbypass=yes&met=1766165938,&mh=RQ&mip=122.162.150.73&mm=31&mn=sn-ci5gup-qxaes&ms=au&mt=1766164070&mv=u&mvi=6&pcm2cms=yes&pl=22&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pcm2cms,pl,rms&lsig=APaTxxMwRQIga8oQVI4ZTGXYId1nLG8gJOWzl0CtAokZDATMDkj4250CIQDlxkH6iAwv7VcIhIDRbu-0laCs4VOJQ9Zqyfx9p4nBQw%3D%3D')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
+                                            <i onclick="playSong('2.mp3')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                             <i onclick="currentAudio.pause()" data-lucide="pause" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                         </div>
                                         <div class="music-row flex items-center gap-3 p-2 rounded hover:bg-gray-800 cursor-pointer group">
@@ -558,7 +558,7 @@
                                                 <div class="text-sm font-bold text-gray-200">Brooklyn Baby</div>
                                                 <div class="text-xs text-gray-500">Lana Del Ray</div>
                                             </div>
-                                            <i onclick="playSong('https://rr3---sn-aigl6ned.googlevideo.com/videoplayback?expire=1766187694&ei=To5FaZ6kNI-HgMMPuMWI4Qw&ip=31.59.20.134&id=o-AMffOaMMLTM0klPHkq0o9KB8OVdGsxqVHByMg7ultuck&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=0&met=1766166094%2C&mh=3n&mm=31%2C26&mn=sn-aigl6ned%2Csn-5hne6nz6&ms=au%2Conr&mv=m&mvi=3&pl=24&rms=au%2Cau&initcwndbps=6041250&bui=AYUSA3DeetTzqwUFgPBwArdS7OWgv1lMqygEA3l9Pz_Bdyg58f9vaMbHu66IPiP8o92g8SQgO5Az06EB&spc=wH4Qq30efeEx&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=5719207&dur=353.338&lmt=1757859962898318&mt=1766165606&fvip=2&keepalive=yes&fexp=51552689%2C51565116%2C51565681%2C51580968&c=ANDROID&txp=5532534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgX3Um_iDQ0HwmvyiKwWTvBR1tADUpak6WWhhfdja-dvwCID8SFeYBB8qJB4bpy7ZM45aCf1vA69XBTDCFWXaa4oEM&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgfC4Mtob384YHZ0s6MLmsOgmiWPzN-i8Q1agi1X0-kLsCIA_ubtGRrQCb1LOFIW9cPMd9jpk9UrfYGONlEvxWHtM5')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
+                                            <i onclick="playSong('3.mp3')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                             <i onclick="currentAudio.pause()" data-lucide="pause" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                         </div>
                                         <div class="music-row flex items-center gap-3 p-2 rounded hover:bg-gray-800 cursor-pointer group">
@@ -567,7 +567,7 @@
                                                 <div class="text-sm font-bold text-gray-200">Heaven and Back</div>
                                                 <div class="text-xs text-gray-500">Chase Atlantic</div>
                                             </div>
-                                            <i onclick="playSong('https://rr1---sn-ci5gup-qxaek.googlevideo.com/videoplayback?expire=1766187795&ei=s45FaeWiNfeo6dsPtsDL6A0&ip=31.59.33.95&id=o-ACubIuqXAsZaYJWisKpIzrixANRzvqHjq9qlZnXQp9o1&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AYUSA3B7yTMmm87TivOmSGl8NTzETw_y0dx-7Vz6rFwAT12AcpYrnEP7G_6M54VjpOcCR9e1uDl31gor&spc=wH4Qq0y2lnHI&vprv=1&svpuc=1&mime=audio%2Fmp4&rqh=1&gir=yes&clen=4018707&dur=248.267&lmt=1725421430385387&keepalive=yes&fexp=51552689,51565115,51565682,51580968&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgQ36EbWHt_6GlM5lpbuJHr_PklptOBDd4ZxnizR1c1c4CIAp6WteEwdb0_Dsb9DiEfYvyxtlqskxIX-FseRKfN10A&redirect_counter=1&rm=sn-aige6k7z&rrc=104&req_id=3bcef8ca10b9a3ee&cms_redirect=yes&cmsv=e&cps=0&ipbypass=yes&met=1766166200,&mh=nk&mip=122.162.150.73&mm=31&mn=sn-ci5gup-qxaek&ms=au&mt=1766164070&mv=u&mvi=1&pl=22&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgMemTkVZMx8LOZpVyetbmgSkdC5dMMsZ1KRJMTSbTY7QCIDhR4ndESGblwZ0BLa9apshLNDAjqGUM4yfjEDhLckXU')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
+                                            <i onclick="playSong('4.mp3')" data-lucide="play" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>
                                             <i onclick="currentAudio.pause()" data-lucide="pause" class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 fill-current"></i>                                        </div>
                                         <div class="music-row flex items-center gap-3 p-2 rounded hover:bg-gray-800 cursor-pointer group">
                                             <span class="text-xs text-gray-500 w-4">5</span>
@@ -720,13 +720,13 @@
 
     <script>
         // --- CONFIG ---
-        const CURRENT_DAY = 2; // Testing Day 2
+        const CURRENT_DAY = 3; // Testing Day 2
         const WORDLE_SOLUTION = "HEART";
 
         // --- STATE ---
         let isZoomed = false;
         let isOSBooted = false;
-        let collectedKeys = JSON.parse(localStorage.getItem('birthdayKeys')) || ["H"];
+        let collectedKeys = JSON.parse(localStorage.getItem('birthdayKeys')) || ["H", "1"];
         let maxZIndex = 30; 
         let currentAudio = null; // Music Player
 
@@ -971,18 +971,35 @@
             container.innerHTML = ''; 
 
             if(day === 1) {
+                // Day 1: Wordle
                 if(collectedKeys.includes("H")) {
                     showWinScreen(container, "Day 1 Complete!", "H");
                 } else {
                     initWordle(container);
                 }
             } else if (day === 2) {
+                // Day 2: Memory
                 if(collectedKeys.includes("1")) {
                     showWinScreen(container, "Day 2 Complete!", "1");
                 } else {
                     initMemoryGame(container);
                 }
+            } else if (day === 3) {
+                // Day 3: Quiz
+                if(collectedKeys.includes("K")) {
+                    showWinScreen(container, "Day 3 Complete!", "K");
+                } else {
+                    initQuizGame(container);
+                }
+            } else if (day === 4) {
+                // Day 4: Scavenger Hunt
+                if(collectedKeys.includes("P")) { // Using P2 to distinguish from Day 3
+                    showWinScreen(container, "Day 4 Complete!", "P");
+                } else {
+                    initScavengerHunt(container);
+                }
             } else {
+                // Locked State
                 container.innerHTML = `
                     <div class="h-full flex flex-col items-center justify-center text-center bg-gray-50">
                         <i data-lucide="lock" class="w-12 h-12 text-gray-400 mb-2"></i>
@@ -1186,6 +1203,123 @@
                     lockBoard = false;
                 }, 1000);
             }
+        }
+
+
+        // --- GAME 3: THE QUIZ ---
+        function initQuizGame(container) {
+            // CUSTOMIZE YOUR QUESTIONS HERE
+            const questions = [
+                {
+                    q: "Where did we go on our first proper date?",
+                    options: ["CP", "Movies", "Diggin"],
+                    correct: 0 // Index of the correct answer (0, 1, 2, 3)
+                },
+                {
+                    q: "What is my favorite color on you?",
+                    options: ["Red", "Blue", "Black"],
+                    correct: 2
+                },
+                {
+                    q: "Who will be the most successful diplomat in India's history?",
+                    options: ["Ofcourse you, Sweetie"],
+                    correct: 0
+                },
+                {
+                    q: "What color did you wear on our first date?",
+                    options: ["Red","Black", "Pink"],
+                    correct: 2
+                },
+                {
+                    q: "Who is the most awesomest person ever?",
+                    options: ["Sheesh", "Saaru", "It is a tie"],
+                    correct: 1
+                }
+            ];
+
+            let currentQ = 0;
+
+            function renderQuestion() {
+                const q = questions[currentQ];
+                container.innerHTML = `
+                    <div class="flex flex-col h-full p-3 bg-white items-center justify-center text-center">
+                        <h3 class="font-bold text-purple-500 mb-2 font-ui text-xl">The Us Quiz</h3>
+                        
+                        <div class="mb-2">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Question ${currentQ + 1}/${questions.length}</span>
+                            <p class="font-hand text-xl mt-2 text-gray-800">${q.q}</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-3 w-full max-w-xs">
+                            ${q.options.map((opt, idx) => `
+                                <button onclick="handleAnswer(${idx})" class="w-full py-3 px-4 bg-gray-100 hover:bg-purple-100 hover:text-purple-600 rounded-lg font-bold text-gray-600 transition-all border-2 border-transparent hover:border-purple-300">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Attach to window so HTML string can call it
+            window.handleAnswer = (idx) => {
+                if (idx === questions[currentQ].correct) {
+                    currentQ++;
+                    if (currentQ < questions.length) {
+                        renderQuestion(); // Next Question
+                    } else {
+                        // Win
+                        alert("You know us so well! Key Fragment: 'K'");
+                        saveKey('K');
+                        closeApp('game');
+                    }
+                } else {
+                    alert("Wrong!😜 Try again, Cutie!");
+                }
+            };
+
+            renderQuestion();
+        }
+
+        // --- GAME 4: SCAVENGER HUNT ---
+        function initScavengerHunt(container) {
+            container.innerHTML = `
+                <div class="flex flex-col h-full p-6 bg-white items-center justify-center text-center">
+                    <i data-lucide="search" class="w-12 h-12 text-orange-400 mb-4"></i>
+                    <h3 class="font-bold text-gray-800 mb-2 font-ui text-xl">Digital Scavenger Hunt</h3>
+                    
+                    <p class="font-ui text-sm text-gray-600 mb-6 max-w-[250px]">
+                        I have hidden a secret code inside the <b>Notes App</b>. 
+                        Go find it and enter it below!
+                    </p>
+
+                    <input id="hunt-input" type="text" placeholder="Enter code here..." class="w-full max-w-xs p-3 border-2 border-gray-300 rounded-lg text-center font-mono uppercase tracking-widest mb-4 focus:outline-none focus:border-orange-400">
+                    
+                    <button onclick="checkScavengerCode()" class="bg-orange-400 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-orange-500 transition-transform hover:scale-105">
+                        Unlock
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+
+            window.checkScavengerCode = () => {
+                const input = document.getElementById('hunt-input').value.toUpperCase().trim();
+                // Make sure you actually add this code ("FOREVER") into the text inside the Notes App in your HTML!
+                if (input === "FOREVER") {
+                    alert("Detective skills on point! Key Fragment: 'P'");
+                    // We use 'P2' here just to store it uniquely in the array if you have duplicate letters
+                    // But visually it will just show P
+                    if(!collectedKeys.includes("P")) {
+                        collectedKeys.push("P");
+                        localStorage.setItem('birthdayKeys', JSON.stringify(collectedKeys));
+                        renderKeys();
+                        setTimeout(() => { openApp('keys'); }, 1000);
+                    }
+                    closeApp('game');
+                } else {
+                    alert("Not quite! Check the Notes app again.");
+                }
+            };
         }
 
         function saveKey(key) {
