@@ -455,7 +455,7 @@
                                         <div class="absolute top-0 bg-red-500 w-full h-2"></div>
                                         <span class="font-bold text-sm mt-1" id="desktop-date">1</span>
                                     </div>
-                                    <span class="text-white text-[10px] font-bold drop-shadow-md bg-black/20 px-2 rounded-full">Today's Game</span>
+                                    <span class="text-white text-[10px] font-bold drop-shadow-md bg-black/20 px-2 rounded-full">Your Gift</span>
                                 </div>
 
                                 <!-- App: Notes -->
@@ -475,11 +475,19 @@
                                 </div>
 
                                 <!-- App: Trash -->
-                                <div onclick="openApp('trash')" class="flex flex-col items-center gap-1 group cursor-pointer app-icon mt-4">
+                                <!-- <div onclick="openApp('trash')" class="flex flex-col items-center gap-1 group cursor-pointer app-icon mt-4">
                                     <div class="w-10 h-10 bg-gray-200/80 rounded-full shadow-lg flex items-center justify-center backdrop-blur">
                                         <i data-lucide="trash-2" class="text-gray-600 w-5 h-5"></i>
                                     </div>
                                     <span class="text-white text-[10px] font-bold drop-shadow-md bg-black/20 px-2 rounded-full">Trash</span>
+                                </div> -->
+
+                                <!-- App: Coupons -->
+                                <div onclick="openApp('coupons')" class="flex flex-col items-center gap-1 group cursor-pointer app-icon">
+                                    <div class="w-10 h-10 bg-rose-400 rounded-lg shadow-lg flex items-center justify-center border-2 border-white/50">
+                                        <i data-lucide="ticket" class="text-white w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-white text-[10px] font-bold drop-shadow-md bg-black/20 px-2 rounded-full">Coupons</span>
                                 </div>
                             </div>
 
@@ -592,6 +600,24 @@
                                             </div>
                                             <i data-lucide="" class="w-5 h-5 text-gray-400"></i>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WINDOW: Coupons -->
+                            <div id="win-coupons" class="window w-[550px] h-[400px] top-8 left-[100px] hidden z-20" onmousedown="bringToFront('win-coupons')">
+                                <div class="window-header bg-rose-50">
+                                    <div class="flex gap-1.5 mr-4">
+                                        <div onclick="closeApp('coupons')" class="w-3 h-3 rounded-full bg-red-500 cursor-pointer"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <span class="text-xs font-bold text-rose-500 flex-1 text-center select-none">Love Coupons</span>
+                                </div>
+                                <div class="flex-1 bg-rose-50 p-4 overflow-y-auto custom-scrollbar">
+                                    <p class="text-center text-xs text-rose-400 mb-4 font-ui">Click a coupon to redeem it (No take-backs!)</p>
+                                    <div id="coupon-grid" class="grid grid-cols-2 gap-3">
+                                        <!-- Coupons injected by JS -->
                                     </div>
                                 </div>
                             </div>
@@ -719,13 +745,13 @@
 
     <script>
         // --- CONFIG ---
-        const CURRENT_DAY = 10; // Testing Day 2
+        const CURRENT_DAY = 11; // Testing Day 2
         const WORDLE_SOLUTION = "HEART";
 
         // --- STATE ---
         let isZoomed = false;
         let isOSBooted = false;
-        let collectedKeys = JSON.parse(localStorage.getItem('birthdayKeys')) || ["H", "1", "K", "P", "B", "5"];
+        let collectedKeys = JSON.parse(localStorage.getItem('birthdayKeys')) || ["H", "1", "K", "P", "B", "5", "3"]; // H1KPB53
         let maxZIndex = 30; 
         let currentAudio = null; // Music Player
 
@@ -737,6 +763,7 @@
             startClock();
             initDraggableProps();
             initDraggableWindows();
+            initCoupons();
         });
 
         // --- CALENDAR ANIMATION ---
@@ -1988,102 +2015,264 @@
         }
 
         // --- GAME 11: THE VAULT (FINALE) ---
+        // --- RE-RE-DESIGNED VAULT (Alpha-Numeric Support) ---
+        // Since the password has letters, we need a text input, not a calculator keypad.
+        // Replacing the function above with this correct version.
+
+        // --- GAME 11: THE VAULT (FINALE) ---
         function initVault(container) {
-            // THE FINAL PASSWORD (Combination of all fragments)
-            const FINAL_CODE = "HAPPYBDAY1"; // Update this to match your actual keys!
+            const FINAL_CODE = "H1KPB53"; // The final code to unlock
 
             container.innerHTML = `
-                <div class="flex flex-col h-full bg-gray-900 items-center justify-center p-6 text-center relative overflow-y-auto">
-                    <!-- Background Matrix Effect -->
-                    <div class="absolute inset-0 opacity-10 pointer-events-none" 
-                        style="background-image: radial-gradient(circle, #4ade80 1px, transparent 1px); background-size: 20px 20px;">
-                    </div>
+                <div class="flex flex-col h-full bg-gray-100 items-center justify-center relative overflow-hidden">
+                    <!-- Soft Gradient BG -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-purple-100 to-white"></div>
+                    
+                    <!-- Floating Shapes -->
+                    <div class="absolute top-10 left-10 w-32 h-32 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div class="absolute top-10 right-10 w-32 h-32 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    <div class="absolute -bottom-8 left-20 w-32 h-32 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
-                    <div class="z-10 w-full max-w-sm">
-                        <i data-lucide="lock" class="w-16 h-16 text-gray-400 mb-6 mx-auto"></i>
+                    <!-- Glass Card -->
+                    <div class="z-10 w-full max-w-md bg-white/60 backdrop-blur-md p-8 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/80 flex flex-col items-center">
                         
-                        <h3 class="font-bold text-white font-mono text-2xl mb-2">SYSTEM LOCKED</h3>
-                        <p class="text-xs text-gray-500 font-mono mb-8">ENTER AUTHORIZATION SEQUENCE</p>
-
-                        <!-- Password Input -->
-                        <div class="flex gap-2 mb-6 justify-center">
-                            <input id="vault-input" type="text" 
-                                class="bg-gray-800 border-2 border-gray-700 text-white font-mono text-center text-2xl tracking-[0.5em] p-3 rounded-lg w-full outline-none focus:border-green-500 focus:shadow-[0_0_20px_rgba(74,222,128,0.5)] transition-all uppercase" 
-                                placeholder="__________" maxlength="10">
+                        <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6 text-pink-500 transform rotate-3">
+                            <i data-lucide="gift" class="w-8 h-8"></i>
                         </div>
 
-                        <button onclick="attemptUnlock()" class="w-full bg-green-600 hover:bg-green-500 text-white font-mono font-bold py-3 px-6 rounded-lg shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
-                            <i data-lucide="unlock" class="w-4 h-4"></i> DECRYPT
+                        <h2 class="font-ui font-bold text-3xl text-gray-800 mb-2">The Final Surprise</h2>
+                        <p class="font-ui text-sm text-gray-500 mb-8 text-center px-4">
+                            Combine all the key fragments you've found over the last 10 days to unlock the grand finale.
+                        </p>
+
+                        <!-- Input Field -->
+                        <div class="w-full relative group mb-6">
+                            <input id="vault-input" type="text" 
+                                class="w-full bg-white/80 border-2 border-transparent focus:border-pink-400 text-center font-mono text-2xl tracking-[0.2em] py-4 px-4 rounded-xl shadow-inner text-gray-700 placeholder-gray-300 outline-none transition-all uppercase"
+                                placeholder="CODE HERE" maxlength="12">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 opacity-50">
+                                <i data-lucide="key" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <!-- Action Button -->
+                        <button onclick="attemptUnlock()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-pink-500/30 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                            <span>Unlock Memories</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </button>
                         
-                        <p id="vault-error" class="text-red-500 font-mono text-xs mt-4 opacity-0 transition-opacity">ACCESS DENIED</p>
+                        <!-- Hint Area -->
+                        <div id="vault-msg" class="h-6 mt-4 text-xs font-bold text-red-400 opacity-0 transition-opacity">
+                            Incorrect Password. Try Again.
+                        </div>
                     </div>
                 </div>
             `;
             lucide.createIcons();
 
             window.attemptUnlock = () => {
-                const input = document.getElementById('vault-input').value.toUpperCase();
+                const input = document.getElementById('vault-input').value.toUpperCase().trim();
+                const msg = document.getElementById('vault-msg');
                 
                 if (input === FINAL_CODE) {
-                    // UNLOCK SEQUENCE
                     playSuccessSequence(container);
                 } else {
-                    // ERROR ANIMATION
-                    const inputEl = document.getElementById('vault-input');
-                    const errorEl = document.getElementById('vault-error');
+                    // Error Feedback
+                    msg.textContent = "Incorrect Code. Check your keys!";
+                    msg.classList.remove('opacity-0');
                     
-                    inputEl.classList.add('border-red-500', 'animate-shake');
-                    errorEl.classList.remove('opacity-0');
+                    const inputEl = document.getElementById('vault-input');
+                    inputEl.classList.add('border-red-400', 'bg-red-50');
+                    inputEl.classList.add('animate-shake');
                     
                     setTimeout(() => {
-                        inputEl.classList.remove('border-red-500', 'animate-shake');
-                        errorEl.classList.add('opacity-0');
-                    }, 1000);
+                        inputEl.classList.remove('border-red-400', 'bg-red-50', 'animate-shake');
+                        msg.classList.add('opacity-0');
+                    }, 1500);
                 }
             };
         }
 
         function playSuccessSequence(container) {
-            // This replaces the vault UI with the "Spotify Wrapped" style finale
-            container.innerHTML = `
-                <div class="absolute inset-0 bg-black flex flex-col items-center justify-center text-center overflow-hidden z-50 animate-fade-in">
-                    <!-- Confetti Canvas or CSS Particles would go here -->
-                    
-                    <div class="space-y-6 animate-slide-up relative z-10 p-8">
-                        <h1 class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-                            HAPPY BIRTHDAY!
-                        </h1>
-                        
-                        <!-- The Video (Replace ID with your actual video) -->
-                        <div class="w-full max-w-md aspect-video bg-gray-800 rounded-xl shadow-2xl overflow-hidden border-4 border-pink-500">
-                            <!-- Example YouTube Embed -->
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
+            // 1. Create the Finale Overlay
+            const finaleOverlay = document.createElement('div');
+            finaleOverlay.id = "finale-overlay";
+            // 'overflow-y-auto' allows scrolling if user wants to override
+            finaleOverlay.className = "fixed inset-0 z-[9999] bg-black text-center animate-fade-in overflow-y-auto overflow-x-hidden custom-scrollbar";
+            
+            // NOTE: Ensure you have a file named 'birthday_video.mp4' in your root folder!
+            const videoSource = "birthday_video.mp4"; 
 
-                        <!-- The Final Letter -->
-                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl text-left max-w-md mx-auto border border-white/20">
-                            <p class="text-white font-hand text-xl leading-relaxed">
-                                Sara, <br><br>
-                                If you're seeing this, you solved every puzzle. 
-                                I hope this little desk brought a smile to your face.
-                                You are my favorite person in the world. <br><br>
-                                I love you so much. <br>
-                                - Sheesh
+            finaleOverlay.innerHTML = `
+                <!-- Floating Particles Background -->
+                <div class="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-50 animate-pulse pointer-events-none"></div>
+                
+                <!-- Content Container -->
+                <div class="relative z-10 w-full min-h-screen flex flex-col items-center pt-10 pb-20">
+                    
+                    <!-- Header Section -->
+                    <div class="space-y-4 mb-8 px-4 animate-slide-down">
+                        <h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 drop-shadow-lg font-ui">
+                            HAPPY BIRTHDAY SARA!
+                        </h1>
+                        <p class="text-pink-300 font-hand text-2xl">You unlocked all the levels.</p>
+                    </div>
+                    
+                    <!-- Video Container (Sticky) -->
+                    <div class="top-10 z-30 w-full max-w-4xl aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden border-4 border-pink-500 mb-12 mx-4 shrink-0">
+                        <video id="final-video" class="w-full h-full object-cover" controls playsinline>
+                            <source src="${videoSource}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <!-- The Final Letter (Auto-Scrolling Container) -->
+                    <div id="letter-container" class="w-full max-w-2xl px-6 pb-32">
+                        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-left border border-white/20 shadow-xl 
+                                    transform transition-all duration-[1000ms] opacity-0 translate-y-20"
+                            id="scrolling-letter">
+                            
+                            <p class="text-white font-hand text-2xl leading-loose">
+                                Dearest Sara, <br><br>
+                                
+                                If you are reading this, it means you have solved every single challenge I put in your way. 
+                                I hope this little digital desk brought a smile to your face over the last 10 days.<br><br>
+                                
+                                The same smile, that is worth more than anything to me. Your pretty smile is like the sun - holds the power to lighten up
+                                everybody's day. This final note is just a reminder to that, always keep up your smile sweetie, for yourself, your mother, and also for us.<br><br>
+                                
+                                You are the kind of person that if they ever made a book about the nicest people ever - it would be named after you. You are kind, smart, incredibly beautiful, and frankly, better at everything than I will ever be.<br><br>
+                                You are my favorite person, my best friend, and my greatest adventure.<br><br>
+                                
+                                <i>I love you more than all the stars in the sky.</i><br><br>
+                                
+                                Happy Birthday, my love.<br><br>
+                                
+                                Yours always, <br>
+                                <span class="text-pink-400 font-bold">- Sheesh</span>
                             </p>
                         </div>
                     </div>
+
+                    <!-- Replay Button -->
+                    <button onclick="location.reload()" class="mt-20 px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors shadow-lg flex items-center gap-2 z-20">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Back to start
+                    </button>
                 </div>
             `;
+
+            document.body.appendChild(finaleOverlay);
+            lucide.createIcons();
+
+            // --- LOGIC: AUTO-SCROLL ON VIDEO END ---
+            const video = document.getElementById('final-video');
+            const letter = document.getElementById('scrolling-letter');
+            const overlay = document.getElementById('finale-overlay');
+
+            video.onended = () => {
+                // 1. Reveal Letter
+                letter.classList.remove('opacity-0', 'translate-y-20');
+                letter.classList.add('opacity-100', 'translate-y-0');
+
+                // 2. Start Auto-Scroll Down
+                let scrollSpeed = 0.5; // Pixels per tick
+                let isUserInteracting = false;
+
+                // Stop auto-scroll if user interacts
+                overlay.addEventListener('wheel', () => { isUserInteracting = true; setTimeout(() => isUserInteracting = false, 3000); });
+                overlay.addEventListener('touchstart', () => { isUserInteracting = true; });
+                overlay.addEventListener('touchend', () => { setTimeout(() => isUserInteracting = false, 3000); });
+
+                function autoScroll() {
+                    // Stop scrolling if we hit the bottom
+                    if (!isUserInteracting && (overlay.scrollTop + overlay.clientHeight < overlay.scrollHeight)) {
+                        overlay.scrollTop += scrollSpeed;
+                        requestAnimationFrame(autoScroll);
+                    }
+                }
+                
+                // Slight delay before scrolling starts
+                setTimeout(autoScroll, 1000);
+            };
             
-            // Simple CSS Animation injection for the finale
+            // Inject Scrollbar Styles
             const style = document.createElement('style');
             style.innerHTML = `
-                @keyframes slide-up { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-                .animate-slide-up { animation: slide-up 1s ease-out forwards; }
+                .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+                .custom-scrollbar::-webkit-scrollbar-track { background: #000; }
+                .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+                
+                @keyframes slide-down { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+                .animate-slide-down { animation: slide-down 1s ease-out forwards; }
             `;
             document.head.appendChild(style);
         }
+
+        // --- COUPON APP LOGIC ---
+            function initCoupons() {
+                const coupons = [
+                    { id: 1, text: "🎬 Virtual Movie Date", desc: "Your pick." },
+                    { id: 2, text: "🌶️ Smut within 2-4 hours", desc: "Redeem for... fun." },
+                    { id: 3, text: "🌶️ Smut within 2-4 hours x2", desc: "Redeem for... fun. x2" },
+                    { id: 4, text: "🌶️ Smut within 2-4 hours x3", desc: "Redeem for... fun. x3" },
+                    { id: 5, text: "🚗 Instant Date wherever whenever", desc: "Coffee included." },
+                    // { id: 5, text: "🚗 Late Night Drive", desc: "Music + Vibe check." },
+                    { id: 6, text: "🏳️ Win Argument", desc: "Get out of jail free." },
+                    { id: 7, text: "🍽️ Home Delivery of chocolates", desc: "Whatever my baby wants." },
+                    { id: 8, text: "🧖‍♀️ Personal Day", desc: "No Disturbing you today." },
+                    { id: 9, text: "ANYTHING.", desc: "Get creative love😘." },
+                    { id: 10, text: "🤐 Veto Power", desc: "Do anything once, no questions." }
+                ];
+
+                const grid = document.getElementById('coupon-grid');
+                const redeemed = JSON.parse(localStorage.getItem('redeemedCoupons')) || [];
+
+                grid.innerHTML = coupons.map(c => {
+                    const isRedeemed = redeemed.includes(c.id);
+                    return `
+                        <div onclick="redeemCoupon(${c.id}, this)" 
+                            class="relative bg-white border-2 ${isRedeemed ? 'border-gray-300 opacity-60' : 'border-rose-300 hover:scale-[1.02] cursor-pointer'} border-dashed rounded-lg p-3 transition-all duration-300 group overflow-hidden">
+                            
+                            <!-- Perforation Circles -->
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-rose-50 rounded-full"></div>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 bg-rose-50 rounded-full"></div>
+
+                            <div class="text-center">
+                                <h4 class="font-bold ${isRedeemed ? 'text-gray-400 line-through' : 'text-rose-500'} font-ui">${c.text}</h4>
+                                <p class="text-[10px] text-gray-400 mt-1">${c.desc}</p>
+                            </div>
+
+                            ${isRedeemed ? `
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-[1px]">
+                                    <span class="border-4 border-red-500 text-red-500 font-bold px-2 py-1 transform -rotate-12 text-sm opacity-80">REDEEMED</span>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                window.redeemCoupon = (id, el) => {
+                    let redeemedList = JSON.parse(localStorage.getItem('redeemedCoupons')) || [];
+                    if(redeemedList.includes(id)) return; // Already done
+
+                    if(confirm("Are you sure you want to redeem this coupon?")) {
+                        redeemedList.push(id);
+                        localStorage.setItem('redeemedCoupons', JSON.stringify(redeemedList));
+                        
+                        // Visual Update immediately
+                        el.classList.remove('border-rose-300', 'hover:scale-[1.02]', 'cursor-pointer');
+                        el.classList.add('border-gray-300', 'opacity-60');
+                        el.querySelector('h4').classList.remove('text-rose-500');
+                        el.querySelector('h4').classList.add('text-gray-400', 'line-through');
+                        
+                        // Add Stamp
+                        const stamp = document.createElement('div');
+                        stamp.className = "absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-[1px] animate-pop";
+                        stamp.innerHTML = `<span class="border-4 border-red-500 text-red-500 font-bold px-2 py-1 transform -rotate-12 text-sm opacity-80">REDEEMED</span>`;
+                        el.appendChild(stamp);
+                    }
+                };
+            }
 
         function saveKey(key) {
             if(!collectedKeys.includes(key)) {
